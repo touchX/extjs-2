@@ -27,5 +27,28 @@ Ext.onReady(function(){
 //  function onButtonClick(btn){
 //      alert(btn.text);
 //  }
-	Ext.MessageBox.alert('系统提示','欢迎使用Hbuilder开发项目...');
+	
+	// 2 . 使用add方法添加菜单的元素
+	var toolbar = new Ext.toolbar.Toolbar({
+		renderTo : 'toolbar' ,
+		width : '100%' ,
+	});
+	// console.log(toolbar);
+	toolbar.add([
+		{text : '编辑',handler :onButtonClick},{text : '打开',handler :onButtonClick},
+		{text : '新建',handler :onButtonClick},{text : '保存',handler :onButtonClick},
+		'-',
+		{
+			xtype : 'textfield',
+			hideLabel : true ,
+			width :'30%',
+		} ,
+		'<a href="javascript:void(0);">超链接</a>',
+		{xtype : 'tbspacer',width : 12} ,
+		'静态文件',
+	]);
 });
+function onButtonClick (btn) {
+	// console.log(btn) ;
+	Ext.MessageBox.alert('系统提示',btn.text);
+}
